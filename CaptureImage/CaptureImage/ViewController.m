@@ -30,7 +30,8 @@
     UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:@"CaptureImage"];
     [navigationBar pushNavigationItem:titleItem animated:YES];
     [self.view addSubview:navigationBar];
-    
+    ///////////////////set the log level//////////////////
+	[DcsView setLogLevel:DLLE_DEBUG];
     ///////////////////add DcsView////////////////////////
     dcsView = [[DcsView alloc]initWithFrame:CGRectMake(0, navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-navigationBar.frame.size.height)];
     //Show the imageGalleryView when DcsView loaded
@@ -75,7 +76,7 @@
     if([sender isMemberOfClass:[DcsUIImageEditorView class]])
         NSLog(@"imageEditorView cancel tap invoked");
 }
-- (void) onCaptureTapped:(id)sender{
+- (void) onCaptureTapped:(id)sender image:(DcsImage *)image{
     NSLog(@"Capture tap invoked");
 }
 
